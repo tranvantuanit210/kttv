@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KTTV.WebAPI", "KTTV.WebAPI\KTTV.WebAPI.csproj", "{0E8BF044-8DEC-49B8-9401-552909E9CCCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KTTV.Service", "KTTV.Service\KTTV.Service.csproj", "{739F4C68-598C-4006-A040-D3401ED35527}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KTTV.Repository", "KTTV.Repository\KTTV.Repository.csproj", "{990FBA24-BF20-4962-A0D3-180D771C7D9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KTTV.Entities", "KTTV.Entities\KTTV.Entities.csproj", "{D007B374-EBF4-4305-8424-9E14115815C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E8BF044-8DEC-49B8-9401-552909E9CCCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E8BF044-8DEC-49B8-9401-552909E9CCCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E8BF044-8DEC-49B8-9401-552909E9CCCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E8BF044-8DEC-49B8-9401-552909E9CCCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{739F4C68-598C-4006-A040-D3401ED35527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{739F4C68-598C-4006-A040-D3401ED35527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{739F4C68-598C-4006-A040-D3401ED35527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{739F4C68-598C-4006-A040-D3401ED35527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{990FBA24-BF20-4962-A0D3-180D771C7D9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{990FBA24-BF20-4962-A0D3-180D771C7D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{990FBA24-BF20-4962-A0D3-180D771C7D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{990FBA24-BF20-4962-A0D3-180D771C7D9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D007B374-EBF4-4305-8424-9E14115815C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D007B374-EBF4-4305-8424-9E14115815C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D007B374-EBF4-4305-8424-9E14115815C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D007B374-EBF4-4305-8424-9E14115815C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D18C540E-368A-46DB-B7DF-42354326860E}
+	EndGlobalSection
+EndGlobal

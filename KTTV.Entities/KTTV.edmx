@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KTTVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="LuongMua">
+          <Key>
+            <PropertyRef Name="Id_LuongMua" />
+          </Key>
+          <Property Name="Id_LuongMua" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Tram" Type="int" Nullable="false" />
+          <Property Name="Id_KhuVuc" Type="int" Nullable="false" />
+          <Property Name="ThoiGian" Type="datetime" />
+          <Property Name="NhietDo" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DoAm" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Mua" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MucNuoc" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Nguon" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="NguoiDung">
+          <Key>
+            <PropertyRef Name="Id_NguoiDung" />
+          </Key>
+          <Property Name="Id_NguoiDung" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Active" Type="bit" />
+        </EntityType>
+        <EntityType Name="Tram">
+          <Key>
+            <PropertyRef Name="Id_Tram" />
+          </Key>
+          <Property Name="Id_Tram" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenTram" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_LuongMua_Tram">
+          <End Role="Tram" Type="Self.Tram" Multiplicity="1" />
+          <End Role="LuongMua" Type="Self.LuongMua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tram">
+              <PropertyRef Name="Id_Tram" />
+            </Principal>
+            <Dependent Role="LuongMua">
+              <PropertyRef Name="Id_Tram" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KTTVModelStoreContainer">
+          <EntitySet Name="LuongMua" EntityType="Self.LuongMua" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NguoiDung" EntityType="Self.NguoiDung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tram" EntityType="Self.Tram" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_LuongMua_Tram" Association="Self.FK_LuongMua_Tram">
+            <End Role="Tram" EntitySet="Tram" />
+            <End Role="LuongMua" EntitySet="LuongMua" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KTTVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="LuongMua">
+          <Key>
+            <PropertyRef Name="Id_LuongMua" />
+          </Key>
+          <Property Name="Id_LuongMua" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Tram" Type="Int32" Nullable="false" />
+          <Property Name="Id_KhuVuc" Type="Int32" Nullable="false" />
+          <Property Name="ThoiGian" Type="DateTime" Precision="3" />
+          <Property Name="NhietDo" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DoAm" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Mua" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MucNuoc" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Nguon" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Tram" Relationship="Self.FK_LuongMua_Tram" FromRole="LuongMua" ToRole="Tram" />
+        </EntityType>
+        <EntityType Name="NguoiDung">
+          <Key>
+            <PropertyRef Name="Id_NguoiDung" />
+          </Key>
+          <Property Name="Id_NguoiDung" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Active" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Tram">
+          <Key>
+            <PropertyRef Name="Id_Tram" />
+          </Key>
+          <Property Name="Id_Tram" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenTram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="LuongMuas" Relationship="Self.FK_LuongMua_Tram" FromRole="Tram" ToRole="LuongMua" />
+        </EntityType>
+        <Association Name="FK_LuongMua_Tram">
+          <End Role="Tram" Type="Self.Tram" Multiplicity="1" />
+          <End Role="LuongMua" Type="Self.LuongMua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tram">
+              <PropertyRef Name="Id_Tram" />
+            </Principal>
+            <Dependent Role="LuongMua">
+              <PropertyRef Name="Id_Tram" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KTTVEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LuongMuas" EntityType="Self.LuongMua" />
+          <EntitySet Name="NguoiDungs" EntityType="Self.NguoiDung" />
+          <EntitySet Name="Trams" EntityType="Self.Tram" />
+          <AssociationSet Name="FK_LuongMua_Tram" Association="Self.FK_LuongMua_Tram">
+            <End Role="Tram" EntitySet="Trams" />
+            <End Role="LuongMua" EntitySet="LuongMuas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KTTVModelStoreContainer" CdmEntityContainer="KTTVEntities">
+          <EntitySetMapping Name="LuongMuas">
+            <EntityTypeMapping TypeName="KTTVModel.LuongMua">
+              <MappingFragment StoreEntitySet="LuongMua">
+                <ScalarProperty Name="Id_LuongMua" ColumnName="Id_LuongMua" />
+                <ScalarProperty Name="Id_Tram" ColumnName="Id_Tram" />
+                <ScalarProperty Name="Id_KhuVuc" ColumnName="Id_KhuVuc" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="NhietDo" ColumnName="NhietDo" />
+                <ScalarProperty Name="DoAm" ColumnName="DoAm" />
+                <ScalarProperty Name="Mua" ColumnName="Mua" />
+                <ScalarProperty Name="MucNuoc" ColumnName="MucNuoc" />
+                <ScalarProperty Name="Nguon" ColumnName="Nguon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NguoiDungs">
+            <EntityTypeMapping TypeName="KTTVModel.NguoiDung">
+              <MappingFragment StoreEntitySet="NguoiDung">
+                <ScalarProperty Name="Id_NguoiDung" ColumnName="Id_NguoiDung" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trams">
+            <EntityTypeMapping TypeName="KTTVModel.Tram">
+              <MappingFragment StoreEntitySet="Tram">
+                <ScalarProperty Name="Id_Tram" ColumnName="Id_Tram" />
+                <ScalarProperty Name="TenTram" ColumnName="TenTram" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

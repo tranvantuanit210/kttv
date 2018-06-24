@@ -1,0 +1,13 @@
+<form>
+	<div class="input">
+		<label>Username</label>
+		<input type="text" [ngModel]="user.userName" (ngModelChange)="user.userName = $event" [ngModelOptions]="{standalone: true}">
+	</div>
+	<div class="input">
+		<label>Password</label>
+		<input type="password" [ngModel]="user.password" (ngModelChange)="user.password = $event" [ngModelOptions]="{standalone: true}">
+	</div>
+	<div class="input">
+		<button (click)='onLogin()'>Login</button>
+	</div>
+</form>
